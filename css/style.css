@@ -1,0 +1,382 @@
+.custom-availability-calendar {
+  font-family: 'Roboto', sans-serif;
+}
+
+.custom-availability-calendar .legend {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.custom-availability-calendar .legend span {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.custom-availability-calendar .legend .custom-legend-booked {
+  background-color: #f44336;
+  color: white;
+}
+
+.custom-availability-calendar .legend .custom-legend-partial {
+  background-color: rgba(255, 165, 0, .18);
+  color: black;
+}
+
+.custom-availability-calendar .legend .custom-legend-available {
+  background-color: #a5d6a7;
+  color: black;
+}
+
+.custom-availability-calendar .calendar-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Navigator */
+.dx-calendar-navigator-next-month {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.dx-calendar-navigator-previous-month {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Tage im Fremdmonat ausblenden */
+.dx-calendar-other-month {
+  visibility: hidden;
+}
+
+/* Monatsstart/ausgewählter Tag NICHT weiß übermalen */
+.dx-calendar-cell.dx-calendar-selected-date span:not(.range) {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* Heute nicht markieren */
+.dx-calendar-cell.dx-calendar-today span {
+  border: none !important;
+}
+
+/* Monats Titel */
+.dx-calendar-caption-button {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+/* Linien entfernen */
+.dx-calendar-header,
+.dx-calendar-body {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.dx-calendar .dx-widget {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.dx-button-mode-outlined {
+  border-color: #fff !important;
+}
+
+.dx-calendar th {
+  text-align: center !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+.dx-calendar-cell,
+.dx-calendar-body table,
+.dx-calendar-body tr,
+.dx-calendar-body td,
+.dx-calendar-navigator,
+.dx-calendar-caption-button,
+.dx-calendar-week-header,
+.dx-calendar,
+.dx-calendar * {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Navigation */
+.jhs-cal-nav {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+#cal-prev,
+#cal-next {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  cursor: pointer;
+}
+
+#cal-prev:hover,
+#cal-next:hover {
+  box-shadow: 0 3px 8px rgba(0,0,0,.18);
+}
+
+/* Responsive */
+@media (max-width:700px) {
+  .jhs-cal-wrapper { 
+    flex-direction: column; 
+    gap: .6rem; 
+  }
+  .jhs-cal-nav { 
+    order: 2; 
+  }
+}
+
+/* Layout */
+.jhs-cal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .75rem;
+}
+
+.jhs-cal-legend {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.jhs-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .8rem;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.jhs-cal-grids {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ===== Farben ===== */
+:root {
+  --booked-dark:  #ff5a58;
+  --booked-light: #ffa7a3;
+  --partial-dark: #ffbf2a;
+  --partial-light:#fde29e;
+  --free-dark:    #42b453;
+  --free-light:   #99ca91;
+}
+
+/* Badges */
+.jhs-badge--free    { background: var(--free-dark);   color: white; }
+.jhs-badge--booked  { background: var(--booked-dark); color: white; }
+.jhs-badge--partial { background: var(--partial-dark);color: white; }
+
+/* Zellen */
+.dx-calendar-cell span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2rem;
+  margin: 0;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  color: inherit;
+}
+
+.range {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 70%;
+  color: #fff;
+}
+
+/* BOOKED */
+.range--booked.range--middle {
+  background-image: linear-gradient(var(--booked-light), var(--booked-light));
+}
+
+.range--booked.range--start {
+  background-image:
+    radial-gradient(circle, var(--booked-dark) 49%, transparent 50%),
+    linear-gradient(to right, transparent 0 50%, var(--booked-light) 50% 100%);
+  background-size: 2rem 2rem, 100% 70%;
+}
+
+.range--booked.range--end {
+  background-image:
+    radial-gradient(circle, var(--booked-dark) 49%, transparent 50%),
+    linear-gradient(to right, var(--booked-light) 0 50%, transparent 50% 100%);
+  background-size: 2rem 2rem, 100% 70%;
+}
+
+.range--booked.range--single {
+  background-image: radial-gradient(circle, var(--booked-dark) 49%, transparent 50%);
+  background-size: 2rem 2rem;
+}
+
+/* PARTIAL */
+.range--partial { color: #111; }
+
+.range--partial.range--middle {
+  background-image: linear-gradient(var(--partial-light), var(--partial-light));
+}
+
+.range--partial.range--start {
+  background-image:
+    radial-gradient(circle, var(--partial-dark) 49%, transparent 50%),
+    linear-gradient(to right, transparent 0 50%, var(--partial-light) 50% 100%);
+  background-size: 2rem 2rem, 100% 70%;
+}
+
+.range--partial.range--end {
+  background-image:
+    radial-gradient(circle, var(--partial-dark) 49%, transparent 50%),
+    linear-gradient(to right, var(--partial-light) 0 50%, transparent 50% 100%);
+  background-size: 2rem 2rem, 100% 70%;
+}
+
+.range--partial.range--single {
+  background-image: radial-gradient(circle, var(--partial-dark) 49%, transparent 50%);
+  background-size: 2rem 2rem;
+}
+
+/* FREE */
+.range--free.range--middle {
+  background-image: linear-gradient(var(--free-light), var(--free-light));
+}
+
+.range--free.range--start {
+  background-image:
+    radial-gradient(circle, var(--free-dark) 49%, transparent 50%),
+    linear-gradient(to right, transparent 0 50%, var(--free-light) 50% 100%);
+  background-size: 2rem 2rem, 100% 70%;
+}
+
+.range--free.range--end {
+  background-image:
+    radial-gradient(circle, var(--free-dark) 49%, transparent 50%),
+    linear-gradient(to right, var(--free-light) 0 50%, transparent 50% 100%);
+  background-size: 2rem 2rem, 100% 70%;
+}
+
+.range--free.range--single {
+  background-image: radial-gradient(circle, var(--free-dark) 49%, transparent 50%);
+  background-size: 2rem 2rem;
+}
+
+/* CIV Modal */
+.hidden_civ { 
+  display: none; 
+}
+
+.civ-modal { 
+  position: fixed; 
+  inset: 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 9999; 
+  background: rgba(0,0,0,.45); 
+}
+
+.civ-modal__dialog { 
+  background: #fff; 
+  max-width: 720px; 
+  width: calc(100% - 2rem); 
+  padding: 1.25rem; 
+  border-radius: .75rem; 
+}
+
+.close-button_civ { 
+  position: absolute; 
+  top: .75rem; 
+  right: .75rem; 
+  font-size: 1.25rem; 
+  background: transparent; 
+  border: 0; 
+  cursor: pointer; 
+}
+
+.civ-modal__meta { 
+  margin-top: .75rem; 
+  font-size: .9rem; 
+  opacity: .8; 
+  display: flex; 
+  gap: .75rem; 
+  flex-wrap: wrap; 
+}
+
+.civ-modal__cta { 
+  display: inline-block; 
+  margin-top: 1rem; 
+  padding: .6rem 1rem; 
+  border-radius: .5rem; 
+  background: #222; 
+  color: #fff; 
+  text-decoration: none; 
+}
+.custom-availability-calendar .dx-calendar.dx-calendar-view-month{
+  outline: 15px solid #fff;   /* ≈ 1 mm auf Bildschirm */
+  border-radius: 6px;
+  overflow: hidden;            /* Rundungen sichtbar */
+}
+/* Eltern-Wrapper als Bezug */
+.custom-availability-calendar .jhs-cal-wrapper {
+  position: relative;
+}
+
+/* Navigation Container */
+.jhs-cal-nav {
+  display: flex;
+  /*flex-direction: column;    /* Pfeile untereinander */
+  gap: .6rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;                 /* volle Höhe der Wrapper-Box */
+  right: -3rem;              /* Abstand rechts von den Kalendern */
+  justify-content: center;   /* vertikal mittig */
+}
+
+/* Buttons rund */
+#cal-prev,
+#cal-next {
+  background: #fff;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;        /* perfekt rund */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  cursor: pointer;
+  transition: box-shadow .2s;
+}
+
+#cal-prev:hover,
+#cal-next:hover {
+  box-shadow: 0 3px 8px rgba(0,0,0,.18);
+}

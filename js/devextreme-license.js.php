@@ -1,0 +1,4 @@
+<?php
+header("Content-Type: application/javascript");
+?>
+DevExpress.config({ licenseKey: 'ewogICJmb3JtYXQiOiAxLAogICJjdXN0b21lcklkIjogIjFkOTVlY2VhLTI0NWMtMTFlNy04MGQ2LTAwMTU1ZDYyNDcwMSIsCiAgIm1heFZlcnNpb25BbGxvd2VkIjogMjUxCn0=.o6fVWGqaxm3zSV4EsSuUJvVfzrr+SopYFROqTJl2G4yQU12m1WuU1sZ0uhVoSm8VYClbQxC8BAqeJnZNpfdp8I39K9SJiejQm4DFnO2/BnYS4HQHQqZzRlcTEippzU1t2VZD8w==' });
