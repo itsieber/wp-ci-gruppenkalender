@@ -54,7 +54,7 @@ data-beschreibung="{Beschreibung}">
 $blocks="";
 
 /*** Events ***/
-$url = 'https://cierp.itsieberrest.ch/pxapi/v4/events?grp=5&filter=(ZUS_Kool_Gruppen.GruppenID=15%20OR%20ZUS_Kool_Gruppen.GruppenID=19%20OR%20ZUS_Kool_Gruppen.GruppenID=34)';
+$url = CI_API_BASE . '/pxapi/v4/events?grp=5&filter=(ZUS_Kool_Gruppen.GruppenID=15%20OR%20ZUS_Kool_Gruppen.GruppenID=19%20OR%20ZUS_Kool_Gruppen.GruppenID=34)';
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
