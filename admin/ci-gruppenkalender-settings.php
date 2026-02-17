@@ -32,6 +32,9 @@ add_action('admin_menu', function () {
 
 // Einstellungsseite HTML
 function ci_Gruppenkalender_render_settings_page() {
+    $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/wp-ci-gruppenkalender/ci-gruppenkalender.php');
+    $changelog_file = plugin_dir_path(__DIR__) . 'CHANGELOG.md';
+    $changelog = file_exists($changelog_file) ? file_get_contents($changelog_file) : '';
     ?>
     <div class="wrap">
         <h1>CI Gruppenkalender Einstellungen</h1>
@@ -42,6 +45,11 @@ function ci_Gruppenkalender_render_settings_page() {
             submit_button();
             ?>
         </form>
+        <hr>
+        <h2>Plugin-Info</h2>
+        <p><strong>Version:</strong> <?php echo esc_html($plugin_data['Version']); ?></p>
+        <h3>Changelog</h3>
+        <pre style="background:#f0f0f0;padding:15px;max-width:600px;overflow:auto;"><?php echo esc_html($changelog); ?></pre>
     </div>
     <?php
 }

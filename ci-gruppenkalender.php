@@ -1,10 +1,23 @@
 <?php
 /**
  * Plugin Name: CI Gruppenkalender
+ * Plugin URI: https://github.com/itsieber/wp-ci-gruppenkalender
  * Description: Zeigt den Gruppenkalender über den Shortcode [ci_Gruppenkalender] an.
- * Version: 1.0
+ * Version: 1.1.0
  * Author: Sieber Engineering AG
+ * Update URI: https://github.com/itsieber/wp-ci-gruppenkalender
  */
+
+// Auto-Update von GitHub
+require_once plugin_dir_path(__FILE__) . 'vendor/plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+$ciGruppenkalenderUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/itsieber/wp-ci-gruppenkalender/',
+    __FILE__,
+    'ci-gruppenkalender'
+);
+$ciGruppenkalenderUpdateChecker->setBranch('main');
+
 $errordebug=false;
 //$errordebug=true;
 if($errordebug)
