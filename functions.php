@@ -1,5 +1,6 @@
 <?php
 
+if (!function_exists('enqueue_devextreme_assets')) {
 function enqueue_devextreme_assets() {
     wp_enqueue_style('devextreme-css', 'https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/25.1.3/css/dx.light.css');
     wp_enqueue_script('jquery'); // Pflicht für DevExtreme
@@ -11,6 +12,7 @@ function enqueue_devextreme_assets() {
     wp_add_inline_script('devextreme-lang-de', 'DevExpress.localization.locale("de");');
 }
 add_action('wp_enqueue_scripts', 'enqueue_devextreme_assets');
+}
 
 function ci_gruppenkalender_enqueue_styles() {
     wp_enqueue_style(
