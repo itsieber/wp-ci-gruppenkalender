@@ -3,7 +3,7 @@
  * Plugin Name: CI Gruppenkalender
  * Plugin URI: https://github.com/itsieber/wp-ci-gruppenkalender
  * Description: Zeigt den Gruppenkalender über den Shortcode [ci_Gruppenkalender] an.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Sieber Engineering AG
  * Update URI: https://github.com/itsieber/wp-ci-gruppenkalender
  */
